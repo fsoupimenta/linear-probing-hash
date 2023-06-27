@@ -15,6 +15,8 @@ class Controller:
 
     def create_hash_table(self):
         self.hash_object = Hash(int(self.main_window.table_size.text()))
+        self.table_window.show()
+        self.table_window.create_table(self.hash_object.hash_table)
 
     def show_main_window(self):
         self.main_window.show()
