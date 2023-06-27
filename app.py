@@ -6,4 +6,4 @@ hash_object = Hash(23)
 for i in range(0, len(values)):
     hash_object.insert(values[i])
 
-hash_object.print_hash_table()
+print(hash_object.get_element(452))
