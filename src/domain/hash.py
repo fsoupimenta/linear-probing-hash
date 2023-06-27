@@ -1,5 +1,7 @@
 from typing import List, Union
 
+from src.domain.utils import get_dictionary_key
+
 
 class Hash:
     def __init__(self, size=23):
@@ -21,16 +23,11 @@ class Hash:
     def get_element(self, key):
         index = self.hash_function(key)
         while self.hash_table[index] is not None:
-            if self.get_dictionary_key(self.hash_table[index]) == key:
+            if get_dictionary_key(self.hash_table[index]) == key:
                 return self.hash_table[index][key]
             index += 1
 
         return 'Missing Key'
-
-    @staticmethod
-    def get_dictionary_key(dictionary):
-        for key, element in dictionary.items():
-            return key
 
     def print_hash_table(self):
         for i in range(len(self.hash_table)):
