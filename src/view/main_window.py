@@ -7,20 +7,12 @@ class MainWindow(QWidget):
         self.setWindowTitle("Hash Table")
         self.layout = QVBoxLayout()
 
-        label = QLabel("Size of Hash Table")
-        self.layout.addWidget(label)
+        self.layout.addWidget(QLabel("Size of Hash Table"))
 
-        self.lineEdit = QLineEdit()
-        self.layout.addWidget(self.lineEdit)
+        self.table_size = QLineEdit()
+        self.layout.addWidget(self.table_size)
 
-        self.button = QPushButton("Create")
-        self.layout.addWidget(self.button)
+        self.create_button = QPushButton("Create")
+        self.layout.addWidget(self.create_button)
 
         self.setLayout(self.layout)
-
-
-if __name__ == "__main__":
-    app = QApplication([])
-    tela = MainWindow()
-    tela.show()
-    app.exec()
