@@ -20,6 +20,8 @@ class Hash:
                 address = 0
         self.hash_table[address] = {key: element}
 
+        return address
+
     def get_element(self, key):
         index = self.hash_function(key)
         while self.hash_table[index] is not None:

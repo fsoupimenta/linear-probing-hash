@@ -15,9 +15,11 @@ class Controller:
         self.table_window.insert_button.clicked.connect(self.insert_element)
 
     def insert_element(self):
-        self.hash_object.insert_key(int(self.table_window.key_input.text()),
-                                    self.table_window.element_input.text())
+        address = self.hash_object.insert_key(int(self.table_window.key_input.text()),
+                                              self.table_window.element_input.text())
         self.table_window.create_table(self.hash_object.hash_table)
+        self.table_window.return_label.setText(f"{self.table_window.element_input.text()} inserted in the {address} "
+                                               f"position")
 
     def show_main_window(self):
         self.main_window.show()
