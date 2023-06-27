@@ -1,9 +1,10 @@
 from src.domain.hash import Hash
 
-values = [452, 623, 766, 564, 825, 387, 237, 360, 134, 285]
+values = {452: 'A', 623: 'B', 766: 'C', 564: 'D', 825: 'E', 387: 'F', 237: 'G', 360: 'H', 134: 'I', 285: 'J'}
 hash_object = Hash(23)
 
-for i in range(0, len(values)):
-    hash_object.insert(values[i])
+for key, element in values.items():
+    hash_object.insert_key(key, element)
 
-print(hash_object.get_element(452))
+hash_object.print_hash_table()
+print(hash_object.get_element(134))
