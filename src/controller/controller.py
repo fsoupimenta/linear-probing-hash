@@ -1,10 +1,12 @@
 from src.domain.hash import Hash
 from src.view.main_window import MainWindow
+from src.view.table_window import TableWindow
 
 
 class Controller:
     def __init__(self):
         self.main_window = MainWindow()
+        self.table_window = TableWindow()
         self.hash_object = None
         self.connect_events()
 

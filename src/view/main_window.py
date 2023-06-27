@@ -3,7 +3,7 @@ from PyQt6.QtWidgets import *
 
 class MainWindow(QWidget):
     def __init__(self):
-        super().__init__()
+        super().__init__(parent=self)
         self.setWindowTitle("Hash Table")
         self.layout = QVBoxLayout()
 
