@@ -26,10 +26,10 @@ class Hash:
         index = self.hash_function(key)
         while self.hash_table[index] is not None:
             if get_dictionary_key(self.hash_table[index]) == key:
-                return self.hash_table[index][key]
+                return self.hash_table[index][key], index
             index += 1
 
-        return 'Missing Key'
+        return 'Missing Key', None
 
     def print_hash_table(self):
         for i in range(len(self.hash_table)):
