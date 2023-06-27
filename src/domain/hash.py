@@ -2,7 +2,7 @@ from typing import List, Union
 
 
 class Hash:
-    def __init__(self, size):
+    def __init__(self, size=23):
         self.size = size
         self.hash_table: List[Union[None, dict]] = [None] * size
 

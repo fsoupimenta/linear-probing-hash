@@ -6,6 +6,8 @@ class TableWindow(QWidget):
         super().__init__()
         self.setWindowTitle("Hash Table")
         self.layout = QVBoxLayout()
+        self.element_input = QLineEdit()
+        self.insert_button = QPushButton("Insert")
 
         self.tableWidget = QTableWidget()
 
@@ -38,6 +40,9 @@ class TableWindow(QWidget):
         self.setMinimumSize(1000, 500)
 
         layout = QVBoxLayout()
+        layout.addWidget(QLabel("Type an Element:"))
+        layout.addWidget(self.element_input)
+        layout.addWidget(self.insert_button)
         layout.addWidget(self.tableWidget)
 
         self.setLayout(layout)
