@@ -6,6 +6,7 @@ from src.domain.utils import get_dictionary_key
 class Hash:
     def __init__(self, size=23):
         self.size = size
+        self.table_size = 0
         self.hash_table: List[Union[None, dict]] = [None] * size
 
     def hash_function(self, key):
@@ -13,14 +14,16 @@ class Hash:
 
     def insert_key(self, key, element):
         address = self.hash_function(key)
-        while self.hash_table[address] is not None:
-            if address != self.size - 1:
-                address = address + 1
-            else:
-                address = 0
-        self.hash_table[address] = {key: element}
+        if self.table_size != self.size:
+            while self.hash_table[address] is not None:
+                address = self.hash_function(address + 1)
 
-        return address
+            self.hash_table[address] = {key: element}
+            self.table_size = self.table_size + 1
+
+            return address
+
+        return 'Full List'
 
     def get_element(self, key):
         index = self.hash_function(key)
