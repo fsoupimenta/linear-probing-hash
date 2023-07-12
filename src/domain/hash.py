@@ -1,6 +1,6 @@
 from typing import List, Union
 
-from src.domain.utils import get_dictionary_key
+from src.domain.utils import get_dictionary_key, get_dictionary_element
 
 
 class Hash:
@@ -25,12 +25,30 @@ class Hash:
 
         return 'Full List'
 
+    def delete_element(self, key):
+        element, index = self.get_element(key)
+        if index is not None:
+            self.hash_table[index] = None
+        else:
+            return 'Missing Key'
+
+        next_index = self.hash_function(index + 1)
+
+        while self.hash_table[next_index] is not None:
+            if self.hash_function(get_dictionary_key(self.hash_table[next_index])) == next_index:
+                pass
+            else:
+                self.insert_key(get_dictionary_key(self.hash_table[next_index]),
+                                get_dictionary_element(self.hash_table[next_index]))
+                self.hash_table[next_index] = None
+            next_index = self.hash_function(next_index + 1)
+
     def get_element(self, key):
         index = self.hash_function(key)
         while self.hash_table[index] is not None:
             if get_dictionary_key(self.hash_table[index]) == key:
                 return self.hash_table[index][key], index
-            index += 1
+            index = self.hash_function(index + 1)
 
         return 'Missing Key', None
 

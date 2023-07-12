@@ -14,6 +14,7 @@ class Controller:
         self.main_window.create_button.clicked.connect(self.show_table_window)
         self.table_window.insert_button.clicked.connect(self.insert_element)
         self.table_window.search_button.clicked.connect(self.search_element)
+        self.table_window.delete_button.clicked.connect(self.delete_element)
 
     def insert_element(self):
         address = self.hash_object.insert_key(int(self.table_window.key_input.text()),
@@ -29,6 +30,11 @@ class Controller:
                                                    f"position")
         else:
             self.table_window.return_label.setText(f"{element}")
+
+    def delete_element(self):
+        self.hash_object.delete_element(int(self.table_window.key_input.text()))
+        self.table_window.create_table(self.hash_object.hash_table)
+        self.table_window.return_label.setText(f"{self.table_window.element_input.text()} deleted")
 
     def show_main_window(self):
         self.main_window.show()
