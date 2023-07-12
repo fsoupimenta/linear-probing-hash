@@ -25,8 +25,9 @@ class Hash:
 
         return 'Full List'
 
-    def delete_element(self, key):
-        element, index = self.get_element(key)
+    def delete_element(self, key=None, index=None):
+        if key is not None:
+            element, index = self.get_element(key)
         if index is not None:
             self.hash_table[index] = None
         else:
@@ -42,6 +43,20 @@ class Hash:
                                 get_dictionary_element(self.hash_table[next_index]))
                 self.hash_table[next_index] = None
             next_index = self.hash_function(next_index + 1)
+
+        return element
+
+    def set_position_available(self, key):
+        element, index = self.get_element(key)
+        if index is not None:
+            self.hash_table[index] = {'A': 'Available'}
+        else:
+            return 'Missing Key'
+
+    def delete_all_available_positions(self):
+        for index in range(0, self.size):
+            if get_dictionary_key(self.hash_table[index]) == 'A':
+                self.delete_element(index=index)
 
     def get_element(self, key):
         index = self.hash_function(key)

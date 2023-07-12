@@ -32,9 +32,9 @@ class Controller:
             self.table_window.return_label.setText(f"{element}")
 
     def delete_element(self):
-        self.hash_object.delete_element(int(self.table_window.key_input.text()))
+        element = self.hash_object.delete_element(key=int(self.table_window.key_input.text()))
         self.table_window.create_table(self.hash_object.hash_table)
-        self.table_window.return_label.setText(f"{self.table_window.element_input.text()} deleted")
+        self.table_window.return_label.setText(f"{element} deleted")
 
     def show_main_window(self):
         self.main_window.show()
