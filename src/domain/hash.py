@@ -30,13 +30,16 @@ class Hash:
             element, index = self.get_element(key)
         if index is not None:
             self.hash_table[index] = None
+            element = None
         else:
             return 'Missing Key'
 
         next_index = self.hash_function(index + 1)
 
         while self.hash_table[next_index] is not None:
-            if self.hash_function(get_dictionary_key(self.hash_table[next_index])) == next_index:
+            if get_dictionary_key(self.hash_table[next_index]) == 'A':
+                pass
+            elif self.hash_function(get_dictionary_key(self.hash_table[next_index])) == next_index:
                 pass
             else:
                 self.insert_key(get_dictionary_key(self.hash_table[next_index]),

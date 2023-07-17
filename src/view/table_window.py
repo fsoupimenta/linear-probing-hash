@@ -14,6 +14,8 @@ class TableWindow(QWidget):
         self.insert_button = QPushButton("Insert")
         self.search_button = QPushButton("Search")
         self.delete_button = QPushButton("Delete")
+        self.available_button = QPushButton("Set Element Available")
+        self.delete_available_button = QPushButton("Delete Elements Available")
 
         self.return_label = QLabel("Your hash table:")
 
@@ -62,8 +64,13 @@ class TableWindow(QWidget):
         layout_aux_button.addWidget(self.search_button)
         layout_aux_button.addWidget(self.delete_button)
 
+        layout_aux_available = QHBoxLayout()
+        layout_aux_button.addWidget(self.available_button)
+        layout_aux_button.addWidget(self.delete_available_button)
+
         layout.addItem(layout_aux_input)
         layout.addItem(layout_aux_button)
+        layout.addItem(layout_aux_available)
         layout.addWidget(self.return_label)
         layout.addWidget(self.tableWidget)
 
