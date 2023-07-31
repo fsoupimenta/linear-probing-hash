@@ -26,7 +26,7 @@ It is worth noting that when searching for an available position, it is necessar
 - [PyQt6](https://pypi.org/project/PyQt6/)
 
 ## Usage 💻
-To use the program, simply install and run the `main.exe` file generated in the latest release.
+To use the program, simply install and run the `LinearProbingHash1.0.exe` file generated in the latest [release](https://github.com/fsoupimenta/linear-probing-hash/releases/tag/1.0).
 
 When the program starts, it will open the screen below in which the user must enter the size of the hash table, this size being a prime number greater than 2. If the user does not enter anything, the software will use the size 23 by default:
 
