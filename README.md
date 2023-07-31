@@ -65,3 +65,10 @@ After that, the main screen below will appear showing the table and the operatio
   </tr>
 </tbody>
 </table>
+
+Note that deletion from a hash table using linear probing can be done in two different ways, namely `immediate deletion` and deletion with slot marking as `available`.
+
+- In `immediate deletion`, when an element is removed, the corresponding slot is emptied immediately, making it available for reuse. However, this approach can result in primary clustering and table fragmentation, impacting performance.
+- On the other hand, deletion with slot marking as `available` avoids immediate physical removal of the element. When an element is deleted, the slot is marked as `available`, indicating that it is free to be reused. This approach avoids primary clustering, but can take up table space with slots marked as `available`.
+
+The choice of approach depends on the specific needs of the system, considering factors such as performance, fragmentation and table space occupation.
