@@ -63,10 +63,14 @@ class Hash:
 
     def get_element(self, key):
         index = self.hash_function(key)
+        count = 0
         while self.hash_table[index] is not None:
+            if count == self.table_size:
+                return 'Missing Key', None
             if get_dictionary_key(self.hash_table[index]) == key:
                 return self.hash_table[index][key], index
             index = self.hash_function(index + 1)
+            count = count + 1
 
         return 'Missing Key', None
 
